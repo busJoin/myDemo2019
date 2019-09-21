@@ -30,8 +30,10 @@ public class testBookController {
     }
 
     @GetMapping("/getBookMaxId")
-    public String getBookMaxId(){
+    public Object getBookMaxId(){
         Book maxIdBook = dao.getMaxIdBook();
+        //测试有属性没空的情况
+        maxIdBook.setAuthor(null);
         return JSON.toJSONString(maxIdBook);
     }
 
